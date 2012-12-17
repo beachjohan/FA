@@ -6,24 +6,28 @@
 \usepackage{subfig}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
-\usepackage{here}
-\usepackage[utf8x]{inputenc}
+% \usepackage{here}
+\usepackage[utf8]{inputenc}
 \usepackage{bm}
 \usepackage{color}
 \usepackage{amsthm}
+
+% Select what to do with todonotes: 
+% \usepackage[disable]{todonotes} % notes not showed
+\usepackage[draft]{todonotes}   % notes showed
 
 \begin{document}
 \section{Extra material}
 \subsection{Jensens inequality}
 Finite case: For a real convex function $\phi$
-$$ \phi\left(\sum_{i= 1}^N \theta_ix_i\right) \leq \sum_{i=1}^N\theta_i \phi(x_i)$$
+$$\phi\left(\sum_{i= 1}^N \theta_ix_i\right) \leq \sum_{i=1}^N\theta_i \phi(x_i)$$
 \begin{proof}
 By induction: n = 2 follows from convexity and for $N+1$:
 $$\phi\left(\sum_{i= 1}^{N+1} \theta_ix_i\right) =  \phi\left(\theta_1x_1 + (1-\theta_1)\sum_{i= 2}^{N+1} \frac{\theta_i}{1-\theta_1}x_i\right) $$
 By convexity of the case $n= 2$ the result follows.
 \end{proof}
 Probability formulation:
-Let $X$ be some random variable, and led $f(x)$ be a convex function (defined at least on a segment containing the rainge of $X$). Then:
+Let $X$ be some random variable, and let $f(x)$ be a convex function (defined at least on a segment containing the range of $X$). Then:
 
 $$\mathbb{E}[f(x)] \geq f(\mathbb{E}[X])$$
 \begin{proof}
@@ -38,30 +42,31 @@ $$\frac{1}{p} + \frac{1}{q} = 1$$
 then:
 $$ab\leq \frac{a^p}{p}+ \frac{b^q}{q} $$
 \begin{proof}
-$$ab = exp\left(\frac{1}{p} ln(a^p) + \frac{1}{q}ln(b^q)\right) \leq 
-\frac{1}{p}exp(ln(a^p)) + \frac{1}{q}exp(ln(b^q)) = \frac{a^p}{p} + \frac{b^q}{q} $$
-where the inequality follows from the convexity of the exponential function,
+$$ab = \exp\left(\frac{1}{p} \ln(a^p) + \frac{1}{q}\ln(b^q)\right) \leq 
+\frac{1}{p}\exp(\ln(a^p)) + \frac{1}{q}\exp(\ln(b^q)) = \frac{a^p}{p} + \frac{b^q}{q} $$
+where the inequality follows from the convexity of the exponential function.
 \end{proof}
 
-\subsubsection{Standard version}:
+\subsubsection{Standard version}
 Let $f:[0,c]\longrightarrow R$ be a continuous and strictly increasing function, where $f(0) = 0$.
 $$ab\leq\int_0^a f(x)ds + \int_0^b f^{-1}(x)dx $$
+\todo{ds ?}
 \begin{proof}
 By visual inspection.
 \end{proof}
 \subsection{Hölders inequality}
 \subsubsection{Standard version}
-Let $(S,\sum, \mu)$ be a measure space and let $q \leq p, q \leq \infty$ with $\frac{1}{p}+ \frac{1}{q} = 1$ then for all measurable real- or conplex-valued functions $f$ and $g$ on $S$
+Let $(S,\sum, \mu)$ be a measure space and let $q \leq p, q \leq \infty$ with $\frac{1}{p}+ \frac{1}{q} = 1$ then for all measurable real- or complex-valued functions $f$ and $g$ on $S$
 $$\|fg\|_1 \leq \|f\|_p \|g\|_q,$$
 in the case $p = 2$ this becomes the Cauchy inequality.
 \begin{proof}
-if $\|f\|_{t} = 0$ for $t = p$ or $t = q$ the left side is zero almost everywhere, so we can assume that $\|f|\|_t > 0$. For $\|f\|_{t}= \infty$ the right hand side could be infinite large. 
-if $t = \infty$ then $|fg|\leq\|f\|_\infty|g|$ almost everywhere and Hölders inequality follows from the monotonicity of the Lebesque integral (?). Normalizing the equation we can expect
+If $\|f\|_{t} = 0$ for $t = p$ or $t = q$ the left side is zero almost everywhere, so we can assume that $\|f\|_t > 0$. For $\|f\|_{t}= \infty$ the right hand side could be infinite large. 
+If $t = \infty$ then $|fg|\leq\|f\|_\infty|g|$ almost everywhere and Hölders inequality follows from the monotonicity of the Lebesque integral (?). Normalizing the equation we can expect
 $$\|f\|_p = \|g\|_q = 1.$$
 Using Youngs inequality
 $$|f(s) g(s)| \leq \frac{|f(s)|^p}{p} + \frac{|g(s)| ^q}{q} \; s\in S$$
 Integrating both sides:
-$$\|fg\|_1 = \int_S |f(s)g(s)| ds \leq \int_s \left(\frac{|f(s)|^p}{p} + \frac{|g(s)| ^q}{q} ds\right) = \frac{\|f\|_p}{p} + \frac{\|g\|_q}{q} = 1 = \|f\|_p \|g\|_q $$
+$$\|fg\|_1 = \int_S |f(s)g(s)| ds \leq \int_s \left(\frac{|f(s)|^p}{p} + \frac{|g(s)| ^q}{q} \right) ds = \frac{\|f\|_p}{p} + \frac{\|g\|_q}{q} = 1 = \|f\|_p \|g\|_q $$
 \end{proof}
 \subsubsection{With sums}
 Using summation to define the norm :
@@ -69,23 +74,23 @@ $$\|x\|_p = \left(\sum_k|x_k|^p\right)^{\frac{1}{p}}$$
 \begin{proof}
 
 
-then (without normalization)
+Then (without normalization)
 $$\frac{|\sum_kx_ky_k|}{\|x\|_p\|x\|_q} \leq  \sum_k\frac{|x_k||y_k|}{\|x\|_p\|x\|_q} \leq  \frac{1}{p}\sum \frac{|x_k|^p}{\|x\|_p^p}+ \frac{1}{p}\sum \frac{|x_k|^q}{\|x\|_q^q} = \frac{1}{p} + \frac{1}{q} = 1$$
 hence
-$$|(x,y)||= |\sum_kx_ky_k| \leq {\|x\|_p\|x\|_q}$$
+$$|(x,y)|= |\sum_kx_ky_k| \leq {\|x\|_p\|x\|_q}$$
 \end{proof}
-The equality holds (proof) iff $arg x_iy_i$ and $|x_j|^p|y_j|^p$ are independent of j. For any $x\in \ell^p$ we can choose $y\in \ell^q$ so we get equality (proof?). Hence we get 
-$$ \|x\|_p = \max\limits_{\substack{\|u\|_q = 1}}\|(xu)\|_1$$
+The equality holds (proof) iff \todo{$y_j$?} $\arg x_iy_i$  and $|x_j|^p|y_j|^p$ are independent of $j$. For any $x\in \ell^p$ we can choose $y\in \ell^q$ so we get equality (proof?). Hence we get 
+\todo{$xu$ ?} $$ \|x\|_p = \max\limits_{\substack{\|u\|_q = 1}}\|(xu)\|_1$$
 
 \subsection{Minkowski}
 For the $\ell^p$ spaces (same holds for $L^p$)
 $$\|x+p\|_p \leq\|x\|_p+ \|y\|_p$$
 \begin{proof}
 (?)
-Using the second formulation of hölder inequality and noting that $\|xy\|_1$ could be written as a scalar product and that scalar products are bilinear
+Using the second formulation of Hölders inequality and noting that $\|xy\|_1$ could be written as a scalar product and that scalar products are bilinear
 $$\|x+y\|_p = \max\limits_{\substack{\|u\|_q = 1}}|(x+y,u)| \leq
 \max\limits_{\substack{\|u\|_q = 1}}|(x,u)|+ |(y,u)| \leq \|x\|_p +\|y\|_q.$$
-Where we in the last inequality splitt the max and use Hölder inequality together with fact that $\|u\|_q = 1.$
+Where we in the last inequality split the max and use Hölder inequality together with fact that $\|u\|_q = 1.$
 \end{proof}
 \subsection{Cauchy inequality}
 A scalar product in a linear space $X$ over  $\mathbb{C}$ is a real valued function that fulfils 
@@ -97,9 +102,9 @@ A scalar product in a linear space $X$ over  $\mathbb{C}$ is a real valued funct
 This also lets us define the norm  
 $$\|x\| = (x,x)^{\frac{1}{2}}$$
 
-\subsubsection{Schwartz Inequality in $\mathbb{C}$}
+\subsubsection{Schwarz Inequality in $\mathbb{C}$}
 $$|(x,y)| \leq \|x\|\|y\|$$
-(This is just a special case of hölders inequality with $p= 2$)
+(This is just a special case of Hölders inequality with $p= 2$)
 \begin{proof}
 For any $t \in \mathbb{R}$ and $y\neq 0$
 \begin{equation}
@@ -158,5 +163,5 @@ Let $a\in \overline{S}$ and choose a sequence $(a_n)$, with $a_n \in S$ convergi
 Let $(V, |\cdot|$) be a normed vector space, and $S\subset V$ a finite dimensional subspace. Then S is closed.
 Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because $S$ is of finite dimension, we have a basis $\{x_1...x_k$ of$S$. Also $x\in span(x_1...x_k,x)$. But as proved in the case when V is finite dimensional, we have that $S$ is closed in $span(x_1...x_k,x$ (taken with the normed induced by $(V, |\cdot|)$) with $a_n \rightarrow x$, and $x\in S$.
 \end{proof}
-något att ändra2, jupps
+
 \end{document}
