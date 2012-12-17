@@ -249,4 +249,23 @@ $n= 1:$ Now suppose we have a bounded sequence in $\mathbb{R}$; by the previous 
 $n \geq 1: $ For the bounded sequence $(a_n) \in \mathbb{R}^n$, we use a the following procedure:
 let $(a_n^1)$ be a subsequence of $(a_n)$  converging in the first coordinate. Let $a_n^2$ be a subsequence of  $(a_n^1)$ converging in the first two coordinates. Continuing in this manner after $n$ subsequence we are done, and have a subsequence of $(a_n)$ that converges in every coordinate.
 \end{proof}
+
+\subsection{The Stone-Weirstrass Theorem}
+\subsubsection{The original statement}
+Suppose $f$ is a continuous complex-valued function defined on the real intervall $[a,b]$. For every $\epsilon>0$, there exists a polynomial function over $\mathbb{C}$ such that 
+\begin{equation}
+\sup_x\| f(x) - p(x)\| \leq \epsilon
+\end{equation}
+\subsubsection{Functional analysis}
+Let $S$ be a compact Hausdorff space, $C(S)$ the set of all real-valued continuous function on $S$. Let $E$ be a subalgebra of $C(S)$, that is,
+\begin{itemize}
+\item $E$ is a subspace of $C(S)$.
+\item The product of two functions in $E$ belongs to $E$.
+\end{itemize}
+In addition we impose the following condition on E:
+\begin{itemize}
+\item $E$ Separates points of $S$, that is, given any pair of points p and q, $p\neq q$, there is a function $f\in E$ such that $f(p) \neq f(q)$
+\item The product of two functions in $E$ belongs to $E$.
+\end{itemize}
+
 \end{document}
