@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.10.1)  17 DEC 2012 09:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.10.1)  17 DEC 2012 09:53
 entering extended mode
 **extramaterial.tex
 (C:\Users\johanf\funktionalanalys\extramaterial.tex
@@ -773,10 +773,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12326 strings out of 494045
- 224904 string characters out of 3148384
+ 12319 strings out of 494045
+ 224673 string characters out of 3148384
  267952 words of memory out of 3000000
- 15371 multiletter control sequences out of 15000+200000
+ 15364 multiletter control sequences out of 15000+200000
  9652 words of font info for 36 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  63i,6n,57p,433b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -792,7 +792,7 @@ b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on extramaterial.pdf (5 pages, 161220 bytes).
+Output written on extramaterial.pdf (5 pages, 162054 bytes).
 PDF statistics:
  73 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
