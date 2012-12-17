@@ -11,6 +11,8 @@
 \usepackage{bm}
 \usepackage{color}
 \usepackage{amsthm}
+%\newcommand{limunder}[1]{\limits_{\substack{#1}}}
+
 
 % Select what to do with todonotes: 
 % \usepackage[disable]{todonotes} % notes not showed
@@ -163,6 +165,46 @@ Let $a\in \overline{S}$ and choose a sequence $(a_n)$, with $a_n \in S$ convergi
 Let $(V, |\cdot|$) be a normed vector space, and $S\subset V$ a finite dimensional subspace. Then S is closed.
 Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because $S$ is of finite dimension, we have a basis $\{x_1...x_k$ of$S$. Also $x\in span(x_1...x_k,x)$. But as proved in the case when V is finite dimensional, we have that $S$ is closed in $span(x_1...x_k,x$ (taken with the normed induced by $(V, |\cdot|)$) with $a_n \rightarrow x$, and $x\in S$.
 \end{proof}
+\section{Things to remember}
+\begin{enumerate}
+\item \textit{Uniform convex:} For any pair of unit vectors $x,y$ the norm $|(x+y)|/2$ is strictly less then 1, by an amount that depends only on $|x-y|$.
+   \begin{itemize}
+        \item $L^p$ spaces are uniformly convex for $1<p<\infty$
+        \item The space $C$ is not uniformly convex, not even subadditiv in the maxnorm
+    \end{itemize}
+\end{enumerate}
 
+\subsubsection{Least upper bound property}
+Is often taken as an axiom.
+Every nonempty set $S$ of $\mathbb{R}$ must have a least upper bound (supremum).
+\section{Measure theory}
+\subsection*{Monotone convergence theory}
+\subsubsection{Reel numbers}
+Theorem: Let $(a_n)$ be a monotone sequence in $\mathbb{R}$ (i.e. $a_n \leq a_{n+1}$ or $a_n \geq a_{n+1}$ for all $n\geq1$. Then $(a_n)$ has a finite limit iff it is bounded.
+\begin{proof}
+(Bounded above)
 
+$(\Leftarrow)$
+By the least upper bound property there is a real number $c = \sup_n (a_n)$. For every $\epsilon \geq 0$, there exists $a_N$ such that $a_n > c-\epsilon$, otherwise $c-\epsilon$ would be an lower bound than $c$. Since $(a_n)$ is monotone $\forall n>N, |c-a_n| = c-a_n \leq c-a_N < \epsilon.$ , it is converging to $\sup(a_n)$.
+
+($\Rightarrow$) Let $a_n \rightarrow c$ as $n\rightarrow \infty$. Then we want to find an $K$ such that $\forall n \in \mathbb{N}: |a_n|\leq K$. Since $(a_n)$ converges is it true that $$\forall \epsilon >0: \exists N: n>N \Longrightarrow |a_n - c| < \epsilon$$
+Set  $\epsilon = 1$ by the reverse triangle inequality
+$$\forall n >N_1 : |a_n| - |c| \leq |a_n - c| < 1,$$
+hence $a_n \leq |c| + 1$.
+$K = \max \left(|a_1|, |a_2, ...|a_{N_1}|, |c|+1\right)$ is finite and does the job. The monotone decreasing sequence can be done analogously.
+\subsubsection{Lebesque's monotone convergence theorem}
+\textit{Theorem:} Let $(X,\Sigma, \mu)$ be a measure space and $(f_1,f_2...), f_i \in \Sigma : f_i: X \rightarrow [0,\infty]$ be pointwise non-decreasing sequences, i.e
+$$ 0 \leq f_k(x) \leq f_{k+1}(x).$$
+Let
+$$f(x) := \lim\limits_{\substack{k\rightarrow \infty}} f_k(x)$$
+be the pointwise limit for $\forall x \in X.$
+Then $f$ is $\Sigma-$ measurable and 
+\begin{equation}
+\lim\limits_{\substack{k\rightarrow \infty}}\int f_k d\mu = \int f d\mu 
+\end{equation}
+This can also take the shape as the sum
+\begin{equation}
+\lim\limits_{\substack{k\rightarrow \infty}}\sum_k a_{kj} = \sum_k \lim a_{kj}
+\end{equation}
+\end{proof}
 \end{document}
