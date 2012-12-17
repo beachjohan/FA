@@ -206,6 +206,29 @@ This can also take the shape as the sum
 \begin{equation}
 \lim\limits_{\substack{k\rightarrow \infty}}\sum_k a_{kj} = \sum_k \lim a_{kj}
 \end{equation}
+\subsubsection{Dominated convergence theorem}
+ Let $f_n$ be a sequence of real-valued measurable functions on a measure space $(X,\Sigma, \mu)$, suppose the sequence converges pointwise to a function $f$ and is dominated by a integrable function $g$ in the sense that
+ \begin{equation}
+ |f_n(x)| \leq g(x),
+ \end{equation}
+ $\forall n\in \mathbb{N}$ and $x\in X$
+ Then f is integrable and 
+ \begin{equation}
+ \lim_{n\rightarrow \infty} \int_S |f_n - f|d\mu = 0 \Longleftrightarrow
+ \lim_{n\rightarrow \infty} \int_S f_n d\mu = \int_S f d\mu 
+ \end{equation}
+ 
+ \subsubsection{Fotou's Lemma}
+  Let $f_n$ be a sequence of real-valued non-negative measurable functions on a measure space $(X,\Sigma, \mu)$. Define the function $f: S \rightarrow [0,\infty]$ almost everywhere by
+  \begin{equation}
+  f(s) = \liminf \limits_{\substack{n\rightarrow \infty}} f_n(s)\;\; s\in S
+  \end{equation}
+Then $f$ is measurable and 
+\begin{equation}
+\int_S fd\mu \leq \liminf \limits_{\substack{n\rightarrow \infty}}
+\int_S f_n d\mu.
+\end{equation}  
+  
 \section{Things we should know!}
 \subsection{Bolzano - Weierstrass Theorem}
 Each bounded sequence in $\mathbb{R}^n$ has a convergent subsequence. 
