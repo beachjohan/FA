@@ -49,8 +49,8 @@ where the inequality follows from the convexity of the exponential function.
 
 \subsubsection{Standard version}
 Let $f:[0,c]\longrightarrow R$ be a continuous and strictly increasing function, where $f(0) = 0$.
-$$ab\leq\int_0^a f(x)ds + \int_0^b f^{-1}(x)dx $$
-\todo{ds ?}
+$$ab\leq\int_0^a f(x)dx + \int_0^b f^{-1}(x)dx $$
+
 \begin{proof}
 By visual inspection.
 \end{proof}
@@ -79,8 +79,8 @@ $$\frac{|\sum_kx_ky_k|}{\|x\|_p\|x\|_q} \leq  \sum_k\frac{|x_k||y_k|}{\|x\|_p\|x
 hence
 $$|(x,y)|= |\sum_kx_ky_k| \leq {\|x\|_p\|x\|_q}$$
 \end{proof}
-The equality holds (proof) iff \todo{$y_j$?} $\arg x_iy_i$  and $|x_j|^p|y_j|^p$ are independent of $j$. For any $x\in \ell^p$ we can choose $y\in \ell^q$ so we get equality (proof?). Hence we get 
-\todo{$xu$ ?} $$ \|x\|_p = \max\limits_{\substack{\|u\|_q = 1}}\|(xu)\|_1$$
+The equality holds (proof) iff $\arg x_jy_j$  and $|x_j|^p|y_j|^p$ are independent of $j$. For any $x\in \ell^p$ we can choose $y\in \ell^q$ so we get equality (proof?). Hence we get 
+$$ \|x\|_p = \max\limits_{\substack{\|y\|_q = 1}}\|(x,y)\|_1$$
 
 \subsection{Minkowski}
 For the $\ell^p$ spaces (same holds for $L^p$)
