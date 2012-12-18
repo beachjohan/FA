@@ -22,7 +22,29 @@
 \tableofcontents
 \newpage
 \section{Basic results in Topology}
-\subsubsection{Lemma x}
+
+\subsection{Bolzano - Weierstrass Theorem}
+Each bounded sequence in $\mathbb{R}^n$ has a convergent subsequence. 
+(or equivalently: A subset of $\mathbb{R}^n$ is sequentially compact iff it is closed and bounded)
+
+\textbf{Lemma:}
+Every sequence $(a_n) \in \mathbb{R}$ has a monotone subsequence.
+\begin{proof}
+
+Let us call a positive integer a \textbf{Peak} of the sequence if $m>n \rightarrow a_m>a_n$. If there are infinitely many peaks we take these as an decreasing subsequence.
+If we instead has finitely many peaks, suppose $N$ is the last one. Then we can find a sequence that for every value $a_{n_j}$ we have 
+$n_{j+1} > n_j$ and $a_{n_j} \leq a_{n_j+1}$ (otherwise $a_{n_j}$ would be a peak. Hence we have a monotone subsequence $a_{n_1} \leq a_{n_2} \leq a_{n_3} \leq \ldots $.
+\end{proof}
+Continuing the proof:
+\begin{proof}
+$n= 1:$ Now suppose we have a bounded sequence in $\mathbb{R}$; by the previous lemma there exists a monotone subsequence, necessarily bounded. Then by monotone convergence theorem, this subsequence converge.
+
+$n \geq 1: $ For the bounded sequence $(a_n) \in \mathbb{R}^n$, we use a the following procedure:
+let $(a_n^1)$ be a subsequence of $(a_n)$  converging in the first coordinate. Let $a_n^2$ be a subsequence of  $(a_n^1)$ converging in the first two coordinates. Continuing in this manner after $n$ subsequence we are done, and have a subsequence of $(a_n)$ that converges in every coordinate.
+\end{proof}
+
+
+\subsection{Convergence lemma}
 Let $Y$ be a subset of the metric space $X$, then $x\in X$ is adherent to Y iff there is a sequence in Y that converges to x.
 \begin{proof}
 \title{lemma x}
@@ -88,8 +110,11 @@ Cleary $\hat{C}$ is an upper bound of C.
 
 $(\hat{C}\in A):$ Let $V:= \{x_1,\ldots, x_n\} \subseteq \hat{C}$ be a finite collection of vectors. Then there exists sets in the chain $c_1,\ldots, c_n\in C$ such that $v_i \in c_i  \;\forall n$. Since is a chain, there is a number $1\leq k \leq n$ such that $C_k =\cup_{i = 1}^n c_i$ and $V\subseteq C_k$. That is $V$ is linear independent. Therefore, $\hat{C} \in A$
 
-(Maximal element:) Nor according to Zorns lemma, $A$ has an maximal element, $M$. This is linearly independent. Let $<M>$ be the span of $M$. Assume there is an $x\in X\setminus<M>$ let $(x_1,\ldots, x_n\in \subseteq M$ be a finite collection of vectors such that 
-$$ a_1x_1 + \ldots + a_nx_n - a_{n+1}x = 0,$$such that $a_{i} = 0$ then $x\cup M$ would be linearly independent contradicting the maximality of $M$. On the other hand if $a_{n+1} \neq 0$  $x = \frac{1}{a_{n+1}} \sum a_ix_i$ contradicting $x\not\in <M>$ Hence $x\not \in M$ does not exist and $X = <M>$
+(Maximal element:) According to Zorns lemma, $A$ has an maximal element, $M$. This is linearly independent. Let $<M>$ be the span of $M$. Assume there is an $x\in X\setminus<M>$ let $(x_1,\ldots, x_n)\in M$ be a finite collection of vectors such that 
+\begin{equation}
+a_1x_1 + \ldots + a_nx_n - a_{n+1}x = 0.
+\end{equation}
+If $a_{i} = 0 \; \forall i$, then $x\cup M$ would be linearly independent contradicting, the maximality of $M$. On the other hand if $a_{n+1} \neq 0$  $x = \frac{1}{a_{n+1}} \sum a_ix_i$ contradicting $x\not\in <M>$. Hence $x\not \in M$ does not exist and $X = <M>$
 \end{proof}
 \subsection{Jensens inequality}
 Finite case: For a real convex function $\phi$
@@ -232,6 +257,7 @@ Set  $\epsilon = 1$ by the reverse triangle inequality
 $$\forall n >N_1 : |a_n| - |c| \leq |a_n - c| < 1,$$
 hence $a_n \leq |c| + 1$.
 $K = \max \left(|a_1|, |a_2, ...|a_{N_1}|, |c|+1\right)$ is finite and does the job. The monotone decreasing sequence can be done analogously.
+\end{proof}
 \subsubsection{Lebesque's monotone convergence theorem}
 \textit{Theorem:} Let $(X,\Sigma, \mu)$ be a measure space and $(f_1,f_2...), f_i \in \Sigma : f_i: X \rightarrow [0,\infty]$ be pointwise non-decreasing sequences, i.e
 $$ 0 \leq f_k(x) \leq f_{k+1}(x).$$
@@ -269,26 +295,7 @@ Then $f$ is measurable and
 \int_S f_n d\mu.
 \end{equation}  
   
-\section{Things we should know!}
-\subsection{Bolzano - Weierstrass Theorem}
-Each bounded sequence in $\mathbb{R}^n$ has a convergent subsequence. 
-(or equivalently: A subset of $\mathbb{R}^n$ is sequentially compact iff it is closed and bounded)
 
-\subsubsection{Lemma}
-Every sequence $(a_n) \in \mathbb{R}$ has a monotone subsequence.
-\begin{proof}
-
-Let us call a positive integer a \textbf{Peak} of the sequence if $m>n \rightarrow a_m>a_n$. If there are infinitely many peaks we take these as an decreasing subsequence.
-If we instead has finitely many peaks, suppose $N$ is the last one. Then we can find a sequence that for every value $a_{n_j}$ we have 
-$n_{j+1} > n_j$ and $a_{n_j} \leq a_{n_j+1}$ (otherwise $a_{n_j}$ would be a peak. Hence we have a monotone subsequence $a_{n_1} \leq a_{n_2} \leq a_{n_3} \leq \ldots $.
-\end{proof}
-Continuing the proof:
-
-$n= 1:$ Now suppose we have a bounded sequence in $\mathbb{R}$; by the previous lemma there exists a monotone subsequence, necessarily bounded. Then by monotone convergence theorem, this subsequence converge.
-
-$n \geq 1: $ For the bounded sequence $(a_n) \in \mathbb{R}^n$, we use a the following procedure:
-let $(a_n^1)$ be a subsequence of $(a_n)$  converging in the first coordinate. Let $a_n^2$ be a subsequence of  $(a_n^1)$ converging in the first two coordinates. Continuing in this manner after $n$ subsequence we are done, and have a subsequence of $(a_n)$ that converges in every coordinate.
-\end{proof}
 
 
 \section{Hilber spaces}
