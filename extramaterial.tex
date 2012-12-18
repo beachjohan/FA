@@ -4,15 +4,19 @@
 
 \DeclareMathAlphabet{\mathscr}{OT1}{pzc}{m}{it}
 \usepackage{subfig}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath,amsthm, amssymb}
 \usepackage{graphicx}
 % \usepackage{here}
 \usepackage[utf8]{inputenc}
 \usepackage{bm}
 \usepackage{color}
-\usepackage{amsthm}
+%\usepackage{amsthm}
+%\usepackage{amsmath, amsthm, amssymb}
 %\newcommand{limunder}[1]{\limits_{\substack{#1}}}
 
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
 
 % Select what to do with todonotes: 
 % \usepackage[disable]{todonotes} % notes not showed
@@ -21,7 +25,67 @@
 \begin{document}
 \tableofcontents
 \newpage
-\section{Basic results in Topology}
+\section{Basic results in Topology \& Other things}
+
+\subsection{Every vectorspace has a basis}
+A basis $B$ is a vector space $V$ over a field $F$ that is linear independent and \textit{spans} $V$
+\begin{enumerate}
+\item \textit{Linear independent:} For all $a_1, \ldots a_n \in F$ if $\sum a_iv_i = 0$ then $a_1=\ldots = a_n = 0$
+\item \textit{Spanning property:} For every $x \in V$ we can choose $a_1, \ldots a_n \in F$ such that $x = \sum a_iv_i$.
+\end{enumerate}
+
+For the infinite case every finite subset $B_0  \subseteq B$ must obey the linear independent property.
+\subsubsection{
+Finite case}
+\begin{proof}
+Just take a collection of vectors $(v_i)$ that spans $V$ and delete 
+all zero vectors. Then delete all vectors in the span of the remaining.
+\end{proof}
+\subsubsection{Infinite case}
+\begin{proof}
+Let $A$ be the set of linearly independent subset of $X$ Then $A$ is partially ordered by inclusion. For each chain $C \subset A$ define $\hat{C} = \cup  c ,\; c \in C$
+Cleary $\hat{C}$ is an upper bound of C.
+
+$(\hat{C}\in A):$ Let $V:= \{x_1,\ldots, x_n\} \subseteq \hat{C}$ be a finite collection of vectors. Then there exists sets in the chain $c_1,\ldots, c_n\in C$ such that $v_i \in c_i  \;\forall n$. Since is a chain, there is a number $1\leq k \leq n$ such that $C_k =\cup_{i = 1}^n c_i$ and $V\subseteq C_k$. That is $V$ is linear independent. Therefore, $\hat{C} \in A$
+
+(Maximal element:) According to Zorns lemma, $A$ has an maximal element, $M$. This is linearly independent. Let $<M>$ be the span of $M$. Assume there is an $x\in X\setminus<M>$ let $(x_1,\ldots, x_n)\in M$ be a finite collection of vectors such that 
+\begin{equation}
+a_1x_1 + \ldots + a_nx_n - a_{n+1}x = 0.
+\end{equation}
+If $a_{i} = 0 \; \forall i$, then $x\cup M$ would be linearly independent contradicting, the maximality of $M$. On the other hand if $a_{n+1} \neq 0$  $x = \frac{1}{a_{n+1}} \sum a_ix_i$ contradicting $x\not\in <M>$. Hence $x\not \in M$ does not exist and $X = <M>$
+\end{proof}
+\subsection{Cantor-Bernstein-Schroeder-Theorem}
+A set theory proof that is useful and is used in the proof that every basis has the same cardinality.
+
+\begin{thm}
+If there exists injective functions $f:A\rightarrow B$ and $g:B \rightarrow A$
+between the sets $A$ and $B$, then there exists a bijective function $h: A \rightarrow B.$ Set theoretically this means $|A|\leq |B|$ and $|B| \leq |A|$, then $|A| = |B|$
+\end{thm}
+\subsection{The Cardinalities of every Basis are the same}
+\subsubsection{Finite case}
+\begin{lem}
+\label{Cardi1}
+If $A$ and $B$ are subsets of a vector space $V$ such that $A$ is linearly independent and $B$ spans $V$ , then $|A| \leq |B|$.
+\end{lem}
+\begin{proof}
+($A$ is finite and $B$ is infinite:) obviously true.
+ 
+($B$ is finite and $A$ is infinite:) Since $A$ is linearly independent there is a superset $C$ of $A$ that is a basis for $V$. Since $A$ is infinite, so is $C$, and therefore all bases for $V$ are infinite, and have the same cardinality as $C$ (Later proof). Since $B$ spans $V$, there is a subset $D$ of $B$ that is a basis for $V$. We have $|A| \leq |C| = |D| \leq |B|$. 
+
+($B$ is finite and $A$ is finite:) Assume $A \neq \emptyset$. Let $A = \{a_1,\ldots a_n\}$ and $B = \{b_1,\ldots, b_m\}$. Assume  $m<n$. So $a_i \neq 0$. Since $B$ spans $V$, $a_1$ can be expressed as an linear combination of elements of $B$. Changing the order of elements in $B$ we can accomplish this so that $b_1 \neq 0$ in the expansion of $a_1$. This means that $b_1 \in span(a_1,b_2,\ldots , b_m)$ But then $span(a_1,b_2,\ldots , b_m) = V$
+Successive  doing this "exchange" for $a_2,\ldots a_n$ and we end up with $span(a_1,\ldots,a_m) = V$ but then $A$ would be linearly dependent (we assumed $m<n$) hence a contradiction. 
+\end{proof}
+
+\begin{thm}
+All bases for a vector space $V$ have the same cardinality.
+\end{thm}
+\begin{proof}
+Suppose $A$ and $B$ are bases of $V$. According to \eqref{Cardi1} $|A| \leq |B|$ since A is linearly independent and $B$ spans $V$. Changing $A$ and $B$ and using Cantor-Bernstein-Schroeder-Theorem completes the proof.
+\end{proof}
+
+
+
+
 
 \subsection{Bolzano - Weierstrass Theorem}
 Each bounded sequence in $\mathbb{R}^n$ has a convergent subsequence. 
@@ -45,7 +109,10 @@ let $(a_n^1)$ be a subsequence of $(a_n)$  converging in the first coordinate. L
 
 
 \subsection{Convergence lemma}
+\begin{lem}
 Let $Y$ be a subset of the metric space $X$, then $x\in X$ is adherent to Y iff there is a sequence in Y that converges to x.
+\end{lem}
+
 \begin{proof}
 \title{lemma x}
 $(\Rightarrow)$ For each $n\geq 1$ there exists some point $x_n \in B(x;1/n)\cap Y$ the sequence $(x_n)$ then converges to $x$.
@@ -89,33 +156,9 @@ Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because
 
 
 
-\subsection{Every vectorspace has a basis}
-A basis $B$ is a vector space $V$ over a field $F$ that is linear independent and \textit{spans} $V$
-\begin{enumerate}
-\item \textit{Linear independent:} For all $a_1, \ldots a_n \in F$ if $\sum a_iv_i = 0$ then $a_1=\ldots = a_n = 0$
-\item \textit{Spanning property:} For every $x \in V$ we can choose $a_1, \ldots a_n \in F$ such that $x = \sum a_iv_i$.
-\end{enumerate}
 
-For the infinite case every finite subset $B_0  \subseteq B$ must obey the linear independent property.
-\subsubsection{
-Finite case}
-\begin{proof}
-Just take a collection of vectors $(v_i)$ that spans $V$ and delete 
-all zero vectors. Then delete all vectors in the span of the remaining.
-\end{proof}
-\subsubsection{Infinite case}
-\begin{proof}
-Let $A$ be the set of linearly independent subset of $X$ Then $A$ is partially ordered by inclusion. For each chain $C \subset A$ define $\hat{C} = \cup  c ,\; c \in C$
-Cleary $\hat{C}$ is an upper bound of C.
 
-$(\hat{C}\in A):$ Let $V:= \{x_1,\ldots, x_n\} \subseteq \hat{C}$ be a finite collection of vectors. Then there exists sets in the chain $c_1,\ldots, c_n\in C$ such that $v_i \in c_i  \;\forall n$. Since is a chain, there is a number $1\leq k \leq n$ such that $C_k =\cup_{i = 1}^n c_i$ and $V\subseteq C_k$. That is $V$ is linear independent. Therefore, $\hat{C} \in A$
 
-(Maximal element:) According to Zorns lemma, $A$ has an maximal element, $M$. This is linearly independent. Let $<M>$ be the span of $M$. Assume there is an $x\in X\setminus<M>$ let $(x_1,\ldots, x_n)\in M$ be a finite collection of vectors such that 
-\begin{equation}
-a_1x_1 + \ldots + a_nx_n - a_{n+1}x = 0.
-\end{equation}
-If $a_{i} = 0 \; \forall i$, then $x\cup M$ would be linearly independent contradicting, the maximality of $M$. On the other hand if $a_{n+1} \neq 0$  $x = \frac{1}{a_{n+1}} \sum a_ix_i$ contradicting $x\not\in <M>$. Hence $x\not \in M$ does not exist and $X = <M>$
-\end{proof}
 \subsection{Jensens inequality}
 Finite case: For a real convex function $\phi$
 $$\phi\left(\sum_{i= 1}^N \theta_ix_i\right) \leq \sum_{i=1}^N\theta_i \phi(x_i)$$
@@ -224,6 +267,14 @@ $$ \|x\| = \max\limits_{\substack{\|y\| = 1}}\|(x,y)\|_1$$
 
 \end{proof}
 
+
+\subsection{Other theorems}
+\subsubsection{}
+
+
+
+
+
 \section{Finite}
 
 
@@ -236,6 +287,9 @@ $$ \|x\| = \max\limits_{\substack{\|y\| = 1}}\|(x,y)\|_1$$
     \end{itemize}
     \item If $\sum_{j = 1}^\infty \sum_{i = 1}^\infty |a_{ij}| < \infty $ then  $\sum_{j = 1}^\infty \sum_{i = 1}^\infty a_{ij}  = \sum_{i = 1}^\infty \sum_{j = 1}^\infty a_{ij}$ 
 \end{enumerate}
+
+
+
 
 
 \subsubsection{Least upper bound property}
@@ -345,7 +399,7 @@ since $x - \ell(x_0)x \in  N_\ell$, every $x$ can be written as the sum of somet
 \end{enumerate}
 From this it is now easy to prove Riesz representation theorem.
 Since the orthogonal complement $N_\ell^\perp$ is of dimension one. We can define another functional $m$ such that for any  $p \in T^\perp$ $m(x) = (x,p)$ then this functional are the same as $\ell$ except for some constant.
-\subsubsection{Definitions}
+\subsection{Definitions}
 \begin{itemize}
 \item scalar product
 \item Bilinear
