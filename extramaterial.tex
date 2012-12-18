@@ -21,7 +21,76 @@
 \begin{document}
 \tableofcontents
 \newpage
-\section{Extra material}
+\section{Basic results in Topology}
+\subsubsection{Lemma x}
+Let $Y$ be a subset of the metric space $X$, then $x\in X$ is adherent to Y iff there is a sequence in Y that converges to x.
+\begin{proof}
+\title{lemma x}
+$(\Rightarrow)$ For each $n\geq 1$ there exists some point $x_n \in B(x;1/n)\cap Y$ the sequence $(x_n)$ then converges to $x$.
+
+$(\Leftarrow)$  If there is a sequence $(x_n)$ converging to $x$ then all balls centered at $x$ contains points from the sequence.
+\end{proof}
+\subsection{The Stone-Weirstrass Theorem}
+\subsubsection{The original statement}
+Suppose $f$ is a continuous complex-valued function defined on the real intervall $[a,b]$. For every $\epsilon>0$, there exists a polynomial function over $\mathbb{C}$ such that 
+\begin{equation}
+\sup_x\| f(x) - p(x)\| \leq \epsilon
+\end{equation}
+\subsubsection{Functional analysis}
+Let $S$ be a compact Hausdorff space, $C(S)$ the set of all real-valued continuous function on $S$. Let $E$ be a subalgebra of $C(S)$, that is,
+\begin{itemize}
+\item $E$ is a subspace of $C(S)$.
+\item The product of two functions in $E$ belongs to $E$.
+\end{itemize}
+In addition we impose the following condition on E:
+\begin{itemize}
+\item $E$ Separates points of $S$, that is, given any pair of points p and q, $p\neq q$, there is a function $f\in E$ such that $f(p) \neq f(q)$
+\item All constant functions belong to $E$
+\end{itemize}
+\textit{Conclusion}: $E$ is dence in $C(S)$ in the maximum norm.
+
+\newpage
+\section{Normed linear spaces}
+\subsubsection{Every subspace of a normed space of finite dimension is closed}
+Let $(V, |\cdot|$) be a normed vector space of finite dimension, and $S\subset V$ a finite dimensional subspace. Then S is closed.
+\begin{proof}
+Let $a\in \overline{S}$ and choose a sequence $(a_n)$, with $a_n \in S$ converging to $a$ \ref{lemma x}. Then $(a_n)$ is a cauchy sequence in $V$ and also a cauchy sequence in S. Since $V$ is finite dimensional, $V$ is a Banach space, $S$ is complete, so $(a_n)$ converges to an element in $S$. Since limits in a normed space are unique, that limits must be $a$, so $a\in S$.
+\end{proof}
+\subsubsection{Every finite dimensional subspace of a normed space is closed}
+
+\begin{proof}
+Let $(V, |\cdot|$) be a normed vector space, and $S\subset V$ a finite dimensional subspace. Then S is closed.
+Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because $S$ is of finite dimension, we have a basis $\{x_1...x_k$ of $S$. Also $x\in span(x_1...x_k,x)$. But as proved in the case when V is finite dimensional, we have that $S$ is closed in $span(x_1...x_k,x)$ (taken with the normed induced by $(V, |\cdot|)$) with $a_n \rightarrow x$, and $x\in S$.
+\end{proof}
+
+
+
+
+
+\subsection{Every vectorspace has a basis}
+A basis $B$ is a vector space $V$ over a field $F$ that is linear independent and \textit{spans} $V$
+\begin{enumerate}
+\item \textit{Linear independent:} For all $a_1, \ldots a_n \in F$ if $\sum a_iv_i = 0$ then $a_1=\ldots = a_n = 0$
+\item \textit{Spanning property:} For every $x \in V$ we can choose $a_1, \ldots a_n \in F$ such that $x = \sum a_iv_i$.
+\end{enumerate}
+
+For the infinite case every finite subset $B_0  \subseteq B$ must obey the linear independent property.
+\subsubsection{
+Finite case}
+\begin{proof}
+Just take a collection of vectors $(v_i)$ that spans $V$ and delete 
+all zero vectors. Then delete all vectors in the span of the remaining.
+\end{proof}
+\subsubsection{Infinite case}
+\begin{proof}
+Let $A$ be the set of linearly independent subset of $X$ Then $A$ is partially ordered by inclusion. For each chain $C \subset A$ define $\hat{C} = \cup  c ,\; c \in C$
+Cleary $\hat{C}$ is an upper bound of C.
+
+$(\hat{C}\in A):$ Let $V:= \{x_1,\ldots, x_n\} \subseteq \hat{C}$ be a finite collection of vectors. Then there exists sets in the chain $c_1,\ldots, c_n\in C$ such that $v_i \in c_i  \;\forall n$. Since is a chain, there is a number $1\leq k \leq n$ such that $C_k =\cup_{i = 1}^n c_i$ and $V\subseteq C_k$. That is $V$ is linear independent. Therefore, $\hat{C} \in A$
+
+(Maximal element:) Nor according to Zorns lemma, $A$ has an maximal element, $M$. This is linearly independent. Let $<M>$ be the span of $M$. Assume there is an $x\in X\setminus<M>$ let $(x_1,\ldots, x_n\in \subseteq M$ be a finite collection of vectors such that 
+$$ a_1x_1 + \ldots + a_nx_n - a_{n+1}x = 0,$$such that $a_{i} = 0$ then $x\cup M$ would be linearly independent contradicting the maximality of $M$. On the other hand if $a_{n+1} \neq 0$  $x = \frac{1}{a_{n+1}} \sum a_ix_i$ contradicting $x\not\in <M>$ Hence $x\not \in M$ does not exist and $X = <M>$
+\end{proof}
 \subsection{Jensens inequality}
 Finite case: For a real convex function $\phi$
 $$\phi\left(\sum_{i= 1}^N \theta_ix_i\right) \leq \sum_{i=1}^N\theta_i \phi(x_i)$$
@@ -129,48 +198,10 @@ This also gives as a corollary that every vector in a scalar product space can b
 $$ \|x\| = \max\limits_{\substack{\|y\| = 1}}\|(x,y)\|_1$$
 
 \end{proof}
-\subsection{Parallelogram Identity}
-Set $t\pm 1$ in \eqref{scalar} and we end up with the parallelogram identity, which is true for all scalar product induced norms.
-\begin{equation}
-\label{parallel}
-\|x+y\|^2 + \|x-y\|^2 = 2\left(\|x\|^2+ \|y\|^2 \right)
-\end{equation}
-Actually every norm that comes from an scalar product must have this equality (von Neumann)
-\subsection{Polarization Identity}
-For a real vector space, if the norm fullfills the Parallelogram Identity then it induces a scalar product
-\begin{equation}
-(x,y) = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2\right)
-\label{polreel}
-\end{equation}
-And for the complex vector space
-\begin{equation}
-(x,y) = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2 +i\|x+iy\|^2 - i\|x-iy\|^2   \right)
-\label{polcomp}
-\end{equation}
+
 \section{Finite}
-\subsubsection{Lemma x}
-Let $Y$ be a subset of the metric space $X$, then $x\in X$ is adherent to Y iff there is a sequence in Y that converges to x.
-\begin{proof}
-\title{lemma x}
-$(\Rightarrow)$ For each $n\geq 1$ there exists some point $x_n \in B(x;1/n)\cap Y$ the sequence $(x_n)$ then converges to $x$.
 
-$(\Leftarrow)$  If there is a sequence $(x_n)$ converging to $x$ then all balls centered at $x$ contains points from the sequence.
-\end{proof}
-\subsubsection{Every subspace of a normed space of finite dimension is closed}
-Let $(V, |\cdot|$) be a normed vector space of finite dimension, and $S\subset V$ a finite dimensional subspace. Then S is closed.
-\begin{proof}
-Let $a\in \overline{S}$ and choose a sequence $(a_n)$, with $a_n \in S$ converging to $a$ \ref{lemma x}. Then $(a_n)$ is a cauchy sequence in $V$ and also a cauchy sequence in S. Since $V$ is finite dimensional, $V$ is a Banach space, $S$ is complete, so $(a_n)$ converges to an element in $S$. Since limits in a normed space are unique, that limits must be $a$, so $a\in S$.
-\end{proof}
-\subsubsection{Every finite dimensional subspace of a normed space is closed}
 
-\begin{proof}
-Let $(V, |\cdot|$) be a normed vector space, and $S\subset V$ a finite dimensional subspace. Then S is closed.
-<<<<<<< HEAD
-Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because $S$ is of finite dimension, we have a basis $\{x_1...x_k$ of$S$. Also $x\in span(x_1...x_k,x)$. But as proved in the case when V is finite dimensional, we have that $S$ is closed in $span(x_1...x_k,x)$ (taken with the normed induced by $(V, |\cdot|)$) with $a_n \rightarrow x$, and $x\in S$.
-=======
-Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because $S$ is of finite dimension, we have a basis $\{x_1...x_k\}$ of $S$. Also $x\in span(x_1...x_k,x)$. But as proved in the case when V is finite dimensional, we have that $S$ is closed in $span(x_1...x_k,x$ (taken with the normed induced by $(V, |\cdot|)$) with $a_n \rightarrow x$, and $x\in S$.
-
-\end{proof}
 \section{Things to remember}
 \begin{enumerate}
 \item \textit{Uniform convex:} For any pair of unit vectors $x,y$ the norm $|(x+y)|/2$ is strictly less then 1, by an amount that depends only on $|x-y|$.
@@ -259,24 +290,28 @@ $n \geq 1: $ For the bounded sequence $(a_n) \in \mathbb{R}^n$, we use a the fol
 let $(a_n^1)$ be a subsequence of $(a_n)$  converging in the first coordinate. Let $a_n^2$ be a subsequence of  $(a_n^1)$ converging in the first two coordinates. Continuing in this manner after $n$ subsequence we are done, and have a subsequence of $(a_n)$ that converges in every coordinate.
 \end{proof}
 
-\subsection{The Stone-Weirstrass Theorem}
-\subsubsection{The original statement}
-Suppose $f$ is a continuous complex-valued function defined on the real intervall $[a,b]$. For every $\epsilon>0$, there exists a polynomial function over $\mathbb{C}$ such that 
+
+\section{Hilber spaces}
+\subsection{Parallelogram Identity}
+Set $t\pm 1$ in \eqref{scalar} and we end up with the parallelogram identity, which is true for all scalar product induced norms.
 \begin{equation}
-\sup_x\| f(x) - p(x)\| \leq \epsilon
+\label{parallel}
+\|x+y\|^2 + \|x-y\|^2 = 2\left(\|x\|^2+ \|y\|^2 \right)
 \end{equation}
-\subsubsection{Functional analysis}
-Let $S$ be a compact Hausdorff space, $C(S)$ the set of all real-valued continuous function on $S$. Let $E$ be a subalgebra of $C(S)$, that is,
-\begin{itemize}
-\item $E$ is a subspace of $C(S)$.
-\item The product of two functions in $E$ belongs to $E$.
-\end{itemize}
-In addition we impose the following condition on E:
-\begin{itemize}
-\item $E$ Separates points of $S$, that is, given any pair of points p and q, $p\neq q$, there is a function $f\in E$ such that $f(p) \neq f(q)$
-\item All constant functions belong to $E$
-\end{itemize}
-\textit{Conclusion}: $E$ is dence in $C(S)$ in the maximum norm.
+Actually every norm that comes from an scalar product must have this equality (von Neumann)
+\subsection{Polarization Identity}
+For a real vector space, if the norm fullfills the Parallelogram Identity then it induces a scalar product
+\begin{equation}
+(x,y) = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2\right)
+\label{polreel}
+\end{equation}
+And for the complex vector space
+\begin{equation}
+(x,y) = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2 +i\|x+iy\|^2 - i\|x-iy\|^2   \right)
+\label{polcomp}
+\end{equation}
+
+
 \subsection{"Rietz - Lemma"}
 This important lemma is used to prove Rietz representation theorem.
 
@@ -298,8 +333,25 @@ Then for any $x\in X$ we can write $x = \ell(x)x_0 + (x - \ell(x_0)x)$
 since $x - \ell(x_0)x \in  N_\ell$, every $x$ can be written as the sum of something 1 dimensional and something in $N_\ell$. Hence $\dim N_\ell = \dim X - 1$ 
 
 \item let $m,\ell \in X'$ then $m(x) = m\left(\ell(x)x_0 + (x - \ell(x_0)x\right) = m(\ell(x)x_0) = m(x_0)\ell(x)$
-\end{enumerate}
 
+
+\end{enumerate}
+From this it is now easy to prove Riesz representation theorem.
+Since the orthogonal complement $N_\ell^\perp$ is of dimension one. We can define another functional $m$ such that for any  $p \in T^\perp$ $m(x) = (x,p)$ then this functional are the same as $\ell$ except for some constant.
+\subsubsection{Definitions}
+\begin{itemize}
+\item scalar product
+\item Bilinear
+\item Symmetry 
+\item Positivity
+\item Sesquilinear
+\item skew symmetry
+\item Hilbert space
+\item Orthogonal
+\item Orthogonal complement
+\item (closed) Linear span
+\item Orthonormal (base)
+\end{itemize}
 
 
 
