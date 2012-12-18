@@ -277,6 +277,31 @@ In addition we impose the following condition on E:
 \item All constant functions belong to $E$
 \end{itemize}
 \textit{Conclusion}: $E$ is dence in $C(S)$ in the maximum norm.
+\subsection{"Rietz - Lemma"}
+This important lemma is used to prove Rietz representation theorem.
+
+\textbf{Lemma}
+\begin{enumerate}
+\item The nullspace of a linear functional that is bounded is a closed subspace.
+nullspace, they are constant multiples of each other $\ell = cm$.
+\item The nullspace of a linear functional that is not $\equiv 0$ is a linear subspace of codimension 1
+\item If two linear functionals $\ell$ and $m$ has the same 
+\end{enumerate}
+\begin{proof}
+.
+
+\begin{enumerate}
+\item  Continuous $\Longleftrightarrow$ bounded $\Longrightarrow \ell ^{-1}(0)$ is closed.
+\item According to previous results,since the null space of a continuous operator is closed, $X = N_\ell\bigoplus N_\ell^\perp$.
+Take an $x_o\not\in N_\ell$ such that $\ell(x_0) = 1$.
+Then for any $x\in X$ we can write $x = \ell(x)x_0 + (x - \ell(x_0)x)$
+since $x - \ell(x_0)x \in  N_\ell$, every $x$ can be written as the sum of something 1 dimensional and something in $N_\ell$. Hence $\dim N_\ell = \dim X - 1$ 
+
+\item let $m,\ell \in X'$ then $m(x) = m\left(\ell(x)x_0 + (x - \ell(x_0)x\right) = m(\ell(x)x_0) = m(x_0)\ell(x)$
+\end{enumerate}
 
 
+
+
+\end{proof}
 \end{document}
