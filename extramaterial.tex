@@ -19,6 +19,8 @@
 \usepackage[draft]{todonotes}   % notes showed
 
 \begin{document}
+\tableofcontents
+\newpage
 \section{Extra material}
 \subsection{Jensens inequality}
 Finite case: For a real convex function $\phi$
@@ -79,7 +81,7 @@ $$\|x\|_p = \left(\sum_k|x_k|^p\right)^{\frac{1}{p}}$$
 Then (without normalization)
 $$\frac{|\sum_kx_ky_k|}{\|x\|_p\|x\|_q} \leq  \sum_k\frac{|x_k||y_k|}{\|x\|_p\|x\|_q} \leq  \frac{1}{p}\sum \frac{|x_k|^p}{\|x\|_p^p}+ \frac{1}{p}\sum \frac{|x_k|^q}{\|x\|_q^q} = \frac{1}{p} + \frac{1}{q} = 1$$
 hence
-$$|(x,y)|= |\sum_kx_ky_k| \leq {\|x\|_p\|x\|_q}$$
+$$|(x,y)|= |\sum_kx_ky_k| \leq {\|x\|_p\|y\|_q}$$
 \end{proof}
 The equality holds (proof) iff $\arg x_jy_j$  and $|x_j|^p|y_j|^p$ are independent of $j$. For any $x\in \ell^p$ we can choose $y\in \ell^q$ so we get equality (proof?). Hence we get 
 $$ \|x\|_p = \max\limits_{\substack{\|y\|_q = 1}}\|(x,y)\|_1$$
@@ -163,7 +165,7 @@ Let $a\in \overline{S}$ and choose a sequence $(a_n)$, with $a_n \in S$ convergi
 
 \begin{proof}
 Let $(V, |\cdot|$) be a normed vector space, and $S\subset V$ a finite dimensional subspace. Then S is closed.
-Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because $S$ is of finite dimension, we have a basis $\{x_1...x_k$ of$S$. Also $x\in span(x_1...x_k,x)$. But as proved in the case when V is finite dimensional, we have that $S$ is closed in $span(x_1...x_k,x$ (taken with the normed induced by $(V, |\cdot|)$) with $a_n \rightarrow x$, and $x\in S$.
+Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because $S$ is of finite dimension, we have a basis $\{x_1...x_k$ of$S$. Also $x\in span(x_1...x_k,x)$. But as proved in the case when V is finite dimensional, we have that $S$ is closed in $span(x_1...x_k,x)$ (taken with the normed induced by $(V, |\cdot|)$) with $a_n \rightarrow x$, and $x\in S$.
 \end{proof}
 \section{Things to remember}
 \begin{enumerate}
@@ -172,11 +174,14 @@ Let $x\in V$ and let $(a_n)$ be a sequence in $S$ with converges to $x$. Because
         \item $L^p$ spaces are uniformly convex for $1<p<\infty$
         \item The space $C$ is not uniformly convex, not even subadditiv in the maxnorm
     \end{itemize}
+    \item If $\sum_{j = 1}^\infty \sum_{i = 1}^\infty |a_{ij}| < \infty $ then  $\sum_{j = 1}^\infty \sum_{i = 1}^\infty a_{ij}  = \sum_{i = 1}^\infty \sum_{j = 1}^\infty a_{ij}$ 
 \end{enumerate}
+
 
 \subsubsection{Least upper bound property}
 Is often taken as an axiom.
-Every nonempty set $S$ of $\mathbb{R}$ must have a least upper bound (supremum).
+
+Every nonempty set $S$ of $\mathbb{R}$, that has an upper bound, must have a least upper bound (supremum).
 \section{Measure theory}
 \subsection*{Monotone convergence theory}
 \subsubsection{Reel numbers}
@@ -204,7 +209,7 @@ Then $f$ is $\Sigma-$ measurable and
 \end{equation}
 This can also take the shape as the sum
 \begin{equation}
-\lim\limits_{\substack{k\rightarrow \infty}}\sum_k a_{kj} = \sum_k \lim a_{kj}
+\lim\limits_{\substack{k\rightarrow \infty}}\sum_k a_{kj} = \sum_k \lim_{k\rightarrow \infty} a_{kj}
 \end{equation}
 \subsubsection{Dominated convergence theorem}
  Let $f_n$ be a sequence of real-valued measurable functions on a measure space $(X,\Sigma, \mu)$, suppose the sequence converges pointwise to a function $f$ and is dominated by a integrable function $g$ in the sense that
@@ -244,7 +249,7 @@ $n_{j+1} > n_j$ and $a_{n_j} \leq a_{n_j+1}$ (otherwise $a_{n_j}$ would be a pea
 \end{proof}
 Continuing the proof:
 
-$n= 1:$ Now suppose we have a bounded sequence in $\mathbb{R}$; by the previous lemma there exists a monotone subsequence, necessarily bounded. Then by monotone convergence theorem, thus subsequence converge.
+$n= 1:$ Now suppose we have a bounded sequence in $\mathbb{R}$; by the previous lemma there exists a monotone subsequence, necessarily bounded. Then by monotone convergence theorem, this subsequence converge.
 
 $n \geq 1: $ For the bounded sequence $(a_n) \in \mathbb{R}^n$, we use a the following procedure:
 let $(a_n^1)$ be a subsequence of $(a_n)$  converging in the first coordinate. Let $a_n^2$ be a subsequence of  $(a_n^1)$ converging in the first two coordinates. Continuing in this manner after $n$ subsequence we are done, and have a subsequence of $(a_n)$ that converges in every coordinate.
@@ -265,11 +270,9 @@ Let $S$ be a compact Hausdorff space, $C(S)$ the set of all real-valued continuo
 In addition we impose the following condition on E:
 \begin{itemize}
 \item $E$ Separates points of $S$, that is, given any pair of points p and q, $p\neq q$, there is a function $f\in E$ such that $f(p) \neq f(q)$
-\item The product of two functions in $E$ belongs to $E$.
+\item All constant functions belong to $E$
 \end{itemize}
+\textit{Conclusion}: $E$ is dence in $C(S)$ in the maximum norm.
 
-\begin{equation}
-\lim_{petter} strandmark
-\end{equation}
 
 \end{document}
