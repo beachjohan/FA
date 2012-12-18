@@ -356,11 +356,37 @@ Then $f$ is measurable and
 \int_S fd\mu \leq \liminf \limits_{\substack{n\rightarrow \infty}}
 \int_S f_n d\mu.
 \end{equation}  
-  
+  \newpage
 
 
 
-\section{Hilber spaces}
+\section{Hilbert spaces}
+\subsection{Bessels inequality}
+\begin{thm}
+Let $H$ be a Hilbert space and suppose $e_1, e_2, \ldots $ is an orthonormal sequence in $H$. Then for any $x \in H$ 
+\begin{equation}
+\sum_{k = 1}^\infty |(x,e_k)|^2 \leq \|x\| ^2
+\end{equation}
+\end{thm}
+\begin{proof}
+\begin{equation}
+0 \leq \| x - \sum_{k = 1}^n \|^2 = \|x\|^2 - \sum_{k=1}^n|(x,e_k)|^2  
+\end{equation}
+\end{proof}
+\subsection{Parsevalls inequality}
+Suppose we have a separable Hilbert space, where the orthonormal sequence is a basis, then we get equality in Bessels inequality.
+
+An example is the  basis of functions $e^{inx} \in L^2[-\pi,\pi]$.
+where this results in 
+\begin{equation}
+\sum_{n = -\infty}^{n = \infty} |c_n|^2 = \frac{1}{2\pi} \int_{-\pi}^{\pi}|f(x)|^2 dx
+\end{equation}
+and the fourier coefficients are given by
+\begin{equation}
+c_n = \frac{1}{2\pi}\int_{-\pi}^\pi f(x)e^{-inx} dx
+\end{equation}
+\subsection{The Reisz-Ficher Theorem}
+
 \subsection{Parallelogram Identity}
 Set $t\pm 1$ in \eqref{scalar} and we end up with the parallelogram identity, which is true for all scalar product induced norms.
 \begin{equation}
