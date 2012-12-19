@@ -232,7 +232,7 @@ The equality holds (proof) iff $\arg x_jy_j$  and $|x_j|^p|y_j|^p$ are independe
 $$ \|x\|_p = \max\limits_{\substack{\|y\|_q = 1}}\|(x,y)\|_1$$
 
 \subsection{Minkowski}
-For the $\ell^p$ spaces (same holds for $L^p$)
+For the $\ell^p$ spaces (same holds for $L^p$) establishes that the spaces has a norm.
 $$\|x+p\|_p \leq\|x\|_p+ \|y\|_p$$
 \begin{proof}
 (?)
@@ -361,6 +361,15 @@ Then $f$ is measurable and
 
 
 \section{Hilbert spaces}
+\subsection{Inner product lemma}
+\begin{lem}
+Suppose $H$ is an inner product space and sequences $x_n \rightarrow x$ and $y_n \rightarrow y$ then $(x_n,y_n) \rightarrow (x,y)$ 
+\end{lem}
+\begin{proof}
+By cauchy inequality
+
+$|(x_n,y_n) - (x,y)| = |(x_n - x,y_n) + (x,y_n-y)| \leq |(x_n - x,y_n)| + |(x,y_n-y)| \rightarrow 0$
+\end{proof}
 \subsection{Bessels inequality}
 \begin{thm}
 Let $H$ be a Hilbert space and suppose $e_1, e_2, \ldots $ is an orthonormal sequence in $H$. Then for any $x \in H$ 
@@ -386,6 +395,37 @@ and the fourier coefficients are given by
 c_n = \frac{1}{2\pi}\int_{-\pi}^\pi f(x)e^{-inx} dx
 \end{equation}
 \subsection{The Reisz-Ficher Theorem}
+\begin{thm}
+Let $(e_n)$ be an orthonormal sequence in a Hilbert space $H$. Then $\sum_{i = 1}^{\infty}\lambda_ie_i $ converges in $H$ iff $\sum_{i = 1}^{\infty} |\lambda_i|^2 < \infty$ and in this case $\|\sum_{i = 1}^{\infty} \lambda_ie_i\|^2 = \sum_{i = 1}^{\infty} |\lambda_i|^2   $
+\end{thm}
+\begin{proof}
+Let $x_k = \sum_{i+1}^\infty \lambda_i e_i$ and $x = \lim_{k \rightarrow \infty} x_k$. So $(x,e_n) = lim_{i \rightarrow \infty} (x_i,e_k) = \lambda_i \;\; \forall i$. By Bessels inequality for $\forall k$
+\begin{equation}
+\sum_{i = 1}^k |\lambda_i| ^2 = \sum_{i = 1}^k |(x,e_i)| ^2 = \| x \| ^2
+\end{equation}
+Hence $\sum_{i = 1}^k |\lambda_i| ^2$ converges and the sum is most $\|x\|^2$
+Now consider
+\begin{equation}
+\|x_k - x_m\| = \|\sum_m^k \lambda_ne_n\| = \left(\sum_m^k |\lambda_n|^2 \right)^{1/2}
+\end{equation}
+ This is a cauchy sequence, since its convergent, hence it converges to some $x$. 
+ \begin{equation}
+ \|x_k \|^2 = \sum_{i = 1} ^k |\lambda_n |^2 \Longrightarrow \|x\|^2 = \sum_{i = 1} ^\infty |\lambda_n |^2
+ \end{equation}
+Where the implication comes from the inner product lemma.
+This shows that the closed linear span of an orthonormal sequence looks like 
+$\ell_2$
+\end{proof}
+\subsubsection{Lemma}
+\begin{lem}
+Let $(e_n)$ be an orthogonal limit in a Hilbert space $H$. Then the serie $\sum_{i=1}^\infty$ converges to $x$.
+\end{lem}
+\begin{proof}
+Let $y = x - \sum_{i = 1}^\infty (x,e_i)e_i$ then, 
+\begin{equation}
+(y,e_k) = (x,e_k) - \sum_{i = 1}^\infty (x,e_i)(e_i,e_k) = (x,e_k) - (x,e_k) = 0 \;\; \forall k
+\end{equation}
+\end{proof}
 
 \subsection{Parallelogram Identity}
 Set $t\pm 1$ in \eqref{scalar} and we end up with the parallelogram identity, which is true for all scalar product induced norms.
