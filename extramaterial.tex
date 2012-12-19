@@ -26,6 +26,28 @@
 \tableofcontents
 \newpage
 \section{Basic results in Topology \& Other things}
+\subsection{Uniformly Cauchy sequence}
+A sequence is said to be \textit{uniformly Cauchy} if
+\begin{equation}
+\forall \epsilon > 0 \exists N > 0 : \sup_{x\in X} d(f_n(x),f_m(x)) < \epsilon, \; \; \forall m,n > N
+\end{equation}
+\subsection{the limit of uniformly convergent sequence is continuous}
+Let $f_n, f: X\rightarrow Y$ where $(X,\rho)$ and $(Y,d)$ are metric spaces. Suppose $f_n \rightarrow f$ uniformly and each $f_n$ is continuous. Then $\forall \epsilon >0 \; \exists N$ such that for $n>N$.
+\begin{proof}
+This is an $\epsilon/3$ proof. 
+\begin{equation}
+\begin{split}
+|f(x) - f(y)| =&  |f(x) -f(y) +f_n(x) - f_n(x) + f_n(y) - f_n(y)|  \\ 
+   \leq &  |f(x) - f_n(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)| \\
+   \leq & \frac{\epsilon}{3} +\frac{\epsilon}{3} +\frac{\epsilon}{3} = \epsilon
+\end{split}
+\end{equation}
+where the first and third parts are from the uniformly continuity and the middle one is because $f_n$ is continuous.
+\end{proof}
+
+
+
+
 \subsection{Axiom of choice and Zorns lemma}
 Axiom of choice and Zorns lemma are equivalent statments in set thoery.
 \subsubsection{Axiom of choice (AC)} 
@@ -491,4 +513,13 @@ Since the orthogonal complement $N_\ell^\perp$ is of dimension one. We can defin
 
 
 \end{proof}
+
+\section{Math stack exchange}
+Let $H$ be a separable Hilbert space with orthonormal basis $\{e_i\}$. Let $(c_n)$ be a bounded sequence of complex numbers and consider the bounded linear operator $T$ on $H$ defined by $$Tx = \sum_{n\geq 1} c_n(x,e_n)e_n$$
+
+a)What is the spectrum of T?
+
+b) give an example of a selfadjoint operator on $H$ whose spectrum is $[-1,1]$
+Looking at $(T - \lambda I)x$ where  $x = \sum_{n\geq 1} (x,e_n)e_n$  by Parsevall we get the eigenvalues $\lambda_i = c_i$
+one g
 \end{document}
