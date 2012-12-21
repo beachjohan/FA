@@ -25,6 +25,8 @@
 \begin{document}
 \tableofcontents
 \newpage
+\section{Lineaer Algebra}
+
 \section{Basic results in Topology \& Other things}
 \subsection{Uniformly Cauchy sequence}
 A sequence is said to be \textit{uniformly Cauchy} if
@@ -404,7 +406,7 @@ Let $H$ be a Hilbert space and suppose $e_1, e_2, \ldots $ is an orthonormal seq
 0 \leq \| x - \sum_{k = 1}^n \|^2 = \|x\|^2 - \sum_{k=1}^n|(x,e_k)|^2  
 \end{equation}
 \end{proof}
-\subsection{Parsevalls inequality}
+\subsection{Parsevalls equality}
 Suppose we have a separable Hilbert space, where the orthonormal sequence is a basis, then we get equality in Bessels inequality.
 
 An example is the  basis of functions $e^{inx} \in L^2[-\pi,\pi]$.
@@ -495,6 +497,41 @@ since $x - \ell(x_0)x \in  N_\ell$, every $x$ can be written as the sum of somet
 \end{enumerate}
 From this it is now easy to prove Riesz representation theorem.
 Since the orthogonal complement $N_\ell^\perp$ is of dimension one. We can define another functional $m$ such that for any  $p \in T^\perp$ $m(x) = (x,p)$ then this functional are the same as $\ell$ except for some constant.
+
+\subsection{Let $H$ be a Hilbert space; prove that any two basis has the same cardinality}
+\begin{proof}
+Let $H$ be infinite-dimensional and $(e_i)_{i\in I}$ and $(f_j)_{j\in J}$ be two different orthonormal basis for $H$, indexed by the sets $I$ and $J$, respectively.
+(informal) Express $e_i$ in the $f_j$ basis and we get $I \leq J$ and then do the reverse. By Schroeder-Bernstein we have $I$ and $J$ has the same cardinality.
+\end{proof}
+
+\subsection{Separable Hilbert space is isomorphic to $\ell^2$}
+
+For the separable finite case we can map $Ty = (y,x_i)$ for some orthonormal basis  $x_j$ and then note that this sequence in $\ell^2$ is the sequence of fourier coefficients in the chosen basis. And the inner product is preserved (hence isomorphism).
+
+\subsubsection{infinite case:}
+
+\begin{thm}
+Any infinite-dimensional separable Hilbert space (over $\mathbb{C}$) is isomorhpic to $\ell^2$, that is there exists a linear map
+\begin{equation}
+T:H\rightarrow \ell^2
+\end{equation}
+which is injective, surjective and satiesfies $(Tu,Tv)_{\ell^2} = (u,v)_H$ and $\|Tu\|_{\ell^2} = \|U\|_H \;\; \forall u,v\in H$
+\end{thm}
+Choose an orthonormal basis such that 
+\begin{equation}
+Tu = (u,e_j)_{j = 1}^\infty
+\end{equation}
+This maps $u$ to $\ell^2$ by bessels inequality. Morover it is linear, since the entries are linear in $u$. It is also injective since $Tu =0 \rightarrow (u,e_j) = 0 \;\; \forall j \Rightarrow u = 0$ by the assumed completeness of the orthonormal basis. The surjectivity follows from $(c_i)\in \ell^2 \Longrightarrow$ 
+\begin{equation}
+u = \sum_{j=1}^\infty c_je_j
+\end{equation}
+converges in $H$. This is since the partial sums are cauchy if $n>m$,
+\begin{equation}
+\|\sum_{j = m+1}^n c_je_j\|_H^2 = \sum_{j = m+1}^n |c_j|^2,
+\end{equation}
+and by the continuity of the inner product, $Tu = (c_j)$, so T is surjective.
+The equality of norms follows from equality of inner product and the latter follows by computation for finite linear combination of the $e_j$ and by continuity.
+
 \subsection{Definitions}
 \begin{itemize}
 \item scalar product
@@ -510,9 +547,21 @@ Since the orthogonal complement $N_\ell^\perp$ is of dimension one. We can defin
 \item Orthonormal (base)
 \end{itemize}
 
-
-
 \end{proof}
+
+\section{Problem solving}
+\subsection{Showing completeness}
+\subsubsection{$C_b(\mathbb{R})$}
+\begin{enumerate}
+\item Prove that the set of $\ell_\infty(X)$, the set of bounded functions on $X$ is complete for any set $X$.
+\begin{itemize}
+\item Uniformly cauchy $\rightarrow$ pointwise caucht $\rightarrow$ pointwise convergence.
+\item The limit exists and is equal to the pointwise one.
+\end{itemize}
+\item Prove that if $X$ is a metric (Haussdorf) and $(f_n)$ is a sequence of functions in $\ell_\infty$ with each $f_n$ continuous at $x_0\in X$ such that $f_n$ converges uniformly to a function $f$, then $f$ is coninuous at $x_o$
+\item Conclude that $C_b(X)$ is closed in $\ell_\infty(X)$ and thus complete
+\end{enumerate}
+
 
 \section{Math stack exchange}
 Let $H$ be a separable Hilbert space with orthonormal basis $\{e_i\}$. Let $(c_n)$ be a bounded sequence of complex numbers and consider the bounded linear operator $T$ on $H$ defined by $$Tx = \sum_{n\geq 1} c_n(x,e_n)e_n$$
