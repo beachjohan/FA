@@ -571,28 +571,6 @@ a)What is the spectrum of T?
 b) give an example of a selfadjoint operator on $H$ whose spectrum is $[-1,1]$
 Looking at $(T - \lambda I)x$ where  $x = \sum_{n\geq 1} (x,e_n)e_n$  by Parsevall we get the eigenvalues $\lambda_i = c_i$
 one g
-\subsection{4a}
-Let $M: C([0,1]) \rightarrow C([0,1])$ be defined by 
-$$ Mf(x) = f(x/2), \;\; x\in[0,1]$$
-Show that $M$ is bounded and that its spectrum is containd in the closed unit disc
-$\{ \lambda \in \mathbb{C} |\lambda| \leq 1 \}$
-
-my try: 
-$$ \|M\| = \sup_{\|f\| \leq 1} \|Mf\| = \sup_{\|f\| \leq 1} \|f(x/2) \| \leq \|f\|$$
-
-since $\lim_{k\rightarrow \infty} M^kf(x) = f(0)$ and the spectral radius $\sigma (M) = \lim_{k\rightarrow \infty} |M^k|^{1/k} = |f(0)|^{1/k} = 1$  
-Is this correct? Or can someone please correct me
-
-\subsection{4b}
-Let $M: C([0,1]) \rightarrow C([0,1])$ be defined by 
-$$ Mf(x) = f(x/2), \;\; x\in[0,1]$$
-
-Prove that the range of $I-M$ does not contain nonzero constant functions, but it contains all functions $C([0,1])$ that are differentiable (from the right) at 0 and satisfy $f(0) = 0$
-
-My try:
-if $(I - M)f = const$ then the derivative $f'(0)$ would be infinite and hence the function not continuous. By this it also seems to follow that differentiability at 0 and f(0) = 0 must be necessary conditions for $g \in R(I-M)$ (R is the range).
-But how can I prove that we can reach all such functions? 
-
 
 
 \end{document}
