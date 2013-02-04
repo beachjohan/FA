@@ -171,6 +171,56 @@ In addition we impose the following condition on E:
 \textit{Conclusion}: $E$ is dence in $C(S)$ in the maximum norm.
 
 \newpage
+\section{Multi variable Calculus}
+\subsection*{Monotone convergence theory}
+\subsubsection{Reel numbers}
+Theorem: Let $(a_n)$ be a monotone sequence in $\mathbb{R}$ (i.e. $a_n \leq a_{n+1}$ or $a_n \geq a_{n+1}$ for all $n\geq1$. Then $(a_n)$ has a finite limit iff it is bounded.
+\begin{proof}
+(Bounded above)
+
+$(\Leftarrow)$
+By the least upper bound property there is a real number $c = \sup_n (a_n)$. For every $\epsilon \geq 0$, there exists $a_N$ such that $a_n > c-\epsilon$, otherwise $c-\epsilon$ would be an lower bound than $c$. Since $(a_n)$ is monotone $\forall n>N, |c-a_n| = c-a_n \leq c-a_N < \epsilon.$ , it is converging to $\sup(a_n)$.
+
+($\Rightarrow$) Let $a_n \rightarrow c$ as $n\rightarrow \infty$. Then we want to find an $K$ such that $\forall n \in \mathbb{N}: |a_n|\leq K$. Since $(a_n)$ converges is it true that $$\forall \epsilon >0: \exists N: n>N \Longrightarrow |a_n - c| < \epsilon$$
+Set  $\epsilon = 1$ by the reverse triangle inequality
+$$\forall n >N_1 : |a_n| - |c| \leq |a_n - c| < 1,$$
+hence $a_n \leq |c| + 1$.
+$K = \max \left(|a_1|, |a_2, ...|a_{N_1}|, |c|+1\right)$ is finite and does the job. The monotone decreasing sequence can be done analogously.
+\end{proof}
+\subsection{Bolzano - Weierstrass Theorem}
+Each bounded sequence in $\mathbb{R}^n$ has a convergent subsequence. 
+(or equivalently: A subset of $\mathbb{R}^n$ is sequentially compact iff it is closed and bounded)
+
+\textbf{Lemma:}
+Every sequence $(a_n) \in \mathbb{R}$ has a monotone subsequence.
+\begin{proof}
+
+Let us call a positive integer a \textbf{Peak} of the sequence if $m>n \rightarrow a_m>a_n$. If there are infinitely many peaks we take these as an decreasing subsequence.
+If we instead has finitely many peaks, suppose $N$ is the last one. Then we can find a sequence that for every value $a_{n_j}$ we have 
+$n_{j+1} > n_j$ and $a_{n_j} \leq a_{n_j+1}$ (otherwise $a_{n_j}$ would be a peak. Hence we have a monotone subsequence $a_{n_1} \leq a_{n_2} \leq a_{n_3} \leq \ldots $.
+\end{proof}
+Continuing the proof:
+\begin{proof}
+$n= 1:$ Now suppose we have a bounded sequence in $\mathbb{R}$; by the previous lemma there exists a monotone subsequence, necessarily bounded. Then by monotone convergence theorem, this subsequence converge.
+
+$n \geq 1: $ For the bounded sequence $(a_n) \in \mathbb{R}^n$, we use a the following procedure:
+let $(a_n^1)$ be a subsequence of $(a_n)$  converging in the first coordinate. Let $a_n^2$ be a subsequence of  $(a_n^1)$ converging in the first two coordinates. Continuing in this manner after $n$ subsequence we are done, and have a subsequence of $(a_n)$ that converges in every coordinate.
+\end{proof}
+
+\subsection{Boundedness theorem}
+A continuous function $f$ in the closed intervall $[a,b]$ is bounded on the intervall. That is, there exists real $m$ and $M$ such tat $$m\leq f(x) \leq M, $$ for all $x\in [a,b]$
+\begin{proof}
+Assume $f$ is not bounded above on the intervall $[a,b]$. Then for every natural number $n$ there exists an $x_n \in [a,b]$ such that $f(x_n)\geq n$. Bolzano- Weierstrass theorem implies that there exists a convergent subsequence $(x_{n_k})$ of $(x_n)$ that converges to some $x$. As $[a,b]$ is closed, it contains $x$. Because $f$ is continuous, we know that $(f(x_{n_k}) \rightarrow f(x)$ but $f(x_{n_k}) \geq n_k \geq k \;\; \forall k$ which contradicts convergeness. Therefore, f is bounded above on $[a,b]$ 
+\end{proof}
+\subsection{Extreme value theorem}
+Let $f$ be a real valued continuous function in the closed and bounded intervall $[a,b]$ then $f$ attains its maximum and minimum value
+\begin{proof}
+By the boundedness theorem, $f$ is bounded from above. By Dedekind-completeness of the real numbers, the least upper bound (supremum) $M$ of $f$ exists. It is necessary to find a $d\in[a,b]$ such that $M = f(d)$. $M-\frac{1}{n}$ is not an upper bound for $f$, so it exists $d_n \in [a,b]$ so that $M-\frac{1}{n} < f(d_n)$. This defines a sequence $(d_n)$ such that $M-\frac{1}{n} < f(d_n) \leq M \;\; \forall n$. Therefore, the sequence $(f(d_n)) \rightarrow M$.
+
+By Bolzano- Weierstrass theorem, there exists a subsequence $(d_{n_k}) \rightarrow d, \;\;d \in [a,b]$. But since $f$ is continuous at $d$, the sequence $(f(d_{n_k}) \rightarrow f(d)$. So because $(f(d_{n_k})$ is a subsequence of $(f(d_{n})$ that converges to $M$ we must have that $(f(d_{n}) \rightarrow d$
+\end{proof}
+
+
 \section{Normed linear spaces}
 \subsubsection{Every subspace of a normed space of finite dimension is closed}
 Let $(V, |\cdot|$) be a normed vector space of finite dimension, and $S\subset V$ a finite dimensional subspace. Then S is closed.
@@ -488,10 +538,10 @@ nullspace, they are constant multiples of each other $\ell = cm$.
 \item  Continuous $\Longleftrightarrow$ bounded $\Longrightarrow \ell ^{-1}(0)$ is closed.
 \item According to previous results,since the null space of a continuous operator is closed, $X = N_\ell\bigoplus N_\ell^\perp$.
 Take an $x_o\not\in N_\ell$ such that $\ell(x_0) = 1$.
-Then for any $x\in X$ we can write $x = \ell(x)x_0 + (x - \ell(x_0)x)$
-since $x - \ell(x_0)x \in  N_\ell$, every $x$ can be written as the sum of something 1 dimensional and something in $N_\ell$. Hence $\dim N_\ell = \dim X - 1$ 
-
-\item let $m,\ell \in X'$ then $m(x) = m\left(\ell(x)x_0 + (x - \ell(x_0)x\right) = m(\ell(x)x_0) = m(x_0)\ell(x)$
+Then for any $x\in X$ we can write $x = \ell(x)x_0 + \left(x - x_0\ell(x)\right)$
+since $\left(x - x_0\ell(x)\right) \in  N_\ell$, every $x$ can be written as the sum of something 1 dimensional and something in $N_\ell$. Hence $\dim N_\ell = \dim X - 1$ 
+ 
+\item let $m,\ell \in X'$ then $m(x) = m\left(\ell(x)x_0 + \left(x - x_0\ell(x)\right)\right) = m(\ell(x)x_0) = m(x_0)\ell(x)$
 
 
 \end{enumerate}
@@ -564,13 +614,6 @@ The equality of norms follows from equality of inner product and the latter foll
 
 
 \section{Math stack exchange}
-Let $H$ be a separable Hilbert space with orthonormal basis $\{e_i\}$. Let $(c_n)$ be a bounded sequence of complex numbers and consider the bounded linear operator $T$ on $H$ defined by $$Tx = \sum_{n\geq 1} c_n(x,e_n)e_n$$
-
-a)What is the spectrum of T?
-
-b) give an example of a selfadjoint operator on $H$ whose spectrum is $[-1,1]$
-Looking at $(T - \lambda I)x$ where  $x = \sum_{n\geq 1} (x,e_n)e_n$  by Parsevall we get the eigenvalues $\lambda_i = c_i$
-one g
 
 
 \end{document}
